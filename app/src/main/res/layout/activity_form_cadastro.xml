@@ -44,6 +44,7 @@
         android:layout_marginStart="20dp"/>
 
     <TextView
+        android:id="@+id/txt_entrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/entrar"
@@ -142,7 +143,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/bt_cadastrar"
+        android:id="@+id/bt_vamos_la"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/vamos_la"
@@ -152,6 +153,21 @@
         android:padding="15dp"
         android:backgroundTint="@color/red"
         android:layout_margin="20dp"
+        android:visibility="visible"
+        />
+
+    <Button
+        android:id="@+id/bt_continuar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/continuar"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:padding="15dp"
+        android:backgroundTint="@color/red"
+        android:layout_margin="20dp"
+        android:visibility="gone"
         />
 
 </LinearLayout>
