@@ -1,5 +1,6 @@
 package com.pitercapistrano.appfilmesnetflix.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -24,5 +25,24 @@ class FormLogin : AppCompatActivity() {
         }
 
         binding.editEmail.requestFocus()
+
+        binding.btEntrar.setOnClickListener {
+            val email = binding.editEmail.text.toString()
+            val senha = binding.editSenha.text.toString()
+
+            when{
+                email.isEmpty() -> {
+                    binding.containerEmail.helperText = "Preencha o e-mail!"
+                }
+                senha.isEmpty() -> {
+                    binding.containerSenha.helperText = "Preencha a senha!"
+                }
+            }
+        }
+
+        binding.txtCadastrar.setOnClickListener {
+            val intent = Intent(this, FormCadastro::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -1,9 +1,13 @@
 <resources>
-    <string name="app_name">App de Filmes Netflix</string>
+    <string name="app_name">App Filmes Netflix</string>
     <string name="email">Email</string>
     <string name="senha">Senha</string>
     <string name="entrar">Entrar</string>
     <string name="precisa_de_ajuda">Precisa de ajuda?</string>
     <string name="cadastrar">Novo por aqui? Inscreva-se agora.</string>
+    <string name="ajuda">AJUDA</string>
+    <string name="tudo_pronto">Tudo pronto para \n assistir?</string>
+    <string name="informe_seu_email">Informe seu e-mail para criar ou acessar  \n conta.</string>
+    <string name="vamos_la">VAMOS LÁ</string>
 
 </resources>
