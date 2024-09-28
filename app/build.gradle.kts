@@ -52,6 +52,10 @@ dependencies {
     implementation(libs.firebase.common.ktx)
     implementation("com.google.android.gms:play-services-auth:21.2.0")
     implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.android.material:material:1.11.0")
+    implementation ("com.google.android.libraries.identity.googleid:googleid:1.1.0")
+    implementation ("com.google.android.gms:play-services-identity:18.0.1")
+    implementation(libs.firebase.firestore.ktx)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -108,6 +108,14 @@
         android:layout_marginBottom="20dp"
         />
 
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/bt_google"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        />
+
     <TextView
         android:id="@+id/txt_ajuda"
         android:layout_width="wrap_content"
@@ -128,6 +136,16 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_gravity="center"
+        />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminateTint="@color/red"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible"
         />
 
 </LinearLayout>

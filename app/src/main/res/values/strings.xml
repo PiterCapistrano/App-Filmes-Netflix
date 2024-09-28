@@ -10,5 +10,7 @@
     <string name="informe_seu_email">Informe seu e-mail para criar ou acessar  \n conta.</string>
     <string name="vamos_la">VAMOS LÁ</string>
     <string name="continuar">CONTINUAR</string>
+    <string name="create_google">Entrar com conta google</string>
+    <string name="google_server_client_id" translatable="false">122958840552-74640si82rr8pdrkm9vjnu26lqib9q61.apps.googleusercontent.com</string>
 
 </resources>
