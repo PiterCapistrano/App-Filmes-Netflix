@@ -9,6 +9,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
 import com.pitercapistrano.appfilmesnetflix.R
 import com.pitercapistrano.appfilmesnetflix.databinding.ActivityFormCadastroBinding
 
@@ -28,6 +30,8 @@ class FormCadastro : AppCompatActivity() {
         }
         window.statusBarColor = Color.parseColor("#FFFFFF")
         binding.editCdEmail.requestFocus()
+
+
 
         binding.btVamosLa.setOnClickListener {
             val email = binding.editCdEmail.text.toString()
@@ -52,7 +56,7 @@ class FormCadastro : AppCompatActivity() {
             val senha = binding.editCdSenha.text.toString()
 
             if (!email.isEmpty() && !senha.isEmpty()) {
-                Toast.makeText(this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show()
+                Cadastro(email, senha)
             } else if (senha.isEmpty()) {
                 binding.containerCdEmail.helperText = "A senha é obrigatório!"
                 binding.containerCdEmail.boxStrokeColor = Color.parseColor("#FF0000")
@@ -65,6 +69,16 @@ class FormCadastro : AppCompatActivity() {
         binding.txtEntrar.setOnClickListener {
             val intent = Intent(this, FormLogin::class.java)
             startActivity(intent)
+        }
+    }
+
+    private fun Cadastro(email: String, senha: String){
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha).addOnCompleteListener { cadastro ->
+            if (cadastro.isSuccessful){
+                Toast.makeText(this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show()
+        }
+        }.addOnFailureListener {
+            Toast.makeText(this, "Erro ao cadastrar!", Toast.LENGTH_SHORT).show()
         }
     }
 }
