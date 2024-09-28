@@ -2,6 +2,7 @@ package com.pitercapistrano.appfilmesnetflix.view
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
@@ -68,9 +69,14 @@ class FormLogin : AppCompatActivity() {
             when{
                 email.isEmpty() -> {
                     binding.containerEmail.helperText = "Preencha o e-mail!"
+                    binding.containerEmail.boxStrokeColor = Color.parseColor("FF9800")
                 }
                 senha.isEmpty() -> {
                     binding.containerSenha.helperText = "Preencha a senha!"
+                    binding.containerEmail.boxStrokeColor = Color.parseColor("FF9800")
+                }
+                else -> {
+                    autenticacao(email, senha)
                 }
             }
         }
@@ -81,10 +87,32 @@ class FormLogin : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+
+        val usuarioAtual = FirebaseAuth.getInstance().currentUser
+
+        if (usuarioAtual != null){
+            goToHome()
+        }
+    }
+
+    private fun autenticacao(email: String, senha: String){
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, senha).addOnCompleteListener {autenticacao ->
+            if (autenticacao.isSuccessful){
+                Toast.makeText(this, "Login efetuado com sucesso!", Toast.LENGTH_SHORT).show()
+                goToHome()
+            }
+        }.addOnFailureListener {
+            Toast.makeText(this, "Erro ao efetuar o login do usuário!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
     // Método que redireciona o usuário para a Activity Home
     private fun goToHome() {
         val intent = Intent(this, Home::class.java)  // Cria um Intent para a Home
         startActivityForResult(intent, LOGIN_REQUEST_CODE)  // Inicia a Activity Home
+        finish()
     }
 
     // Método para tratar o resultado das Activities iniciadas
