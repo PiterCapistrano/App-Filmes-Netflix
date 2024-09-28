@@ -10,7 +10,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.Firebase
+import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.pitercapistrano.appfilmesnetflix.R
 import com.pitercapistrano.appfilmesnetflix.databinding.ActivityFormCadastroBinding
 
@@ -58,8 +61,8 @@ class FormCadastro : AppCompatActivity() {
             if (!email.isEmpty() && !senha.isEmpty()) {
                 Cadastro(email, senha)
             } else if (senha.isEmpty()) {
-                binding.containerCdEmail.helperText = "A senha é obrigatório!"
-                binding.containerCdEmail.boxStrokeColor = Color.parseColor("#FF0000")
+                binding.containerCdSenha.helperText = "A senha é obrigatório!"
+                binding.containerCdSenha.boxStrokeColor = Color.parseColor("#FF0000")
                 binding.containerCdEmail.boxStrokeColor = Color.parseColor("#FF018786")
             } else if (email.isEmpty()){
                 binding.containerCdEmail.helperText = "O e-mail é obrigatório!"
@@ -76,9 +79,32 @@ class FormCadastro : AppCompatActivity() {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha).addOnCompleteListener { cadastro ->
             if (cadastro.isSuccessful){
                 Toast.makeText(this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show()
+                binding.containerCdSenha.helperText = ""
+                binding.containerCdSenha.boxStrokeColor = Color.parseColor("#FF018786")
+                binding.containerCdEmail.boxStrokeColor = Color.parseColor("#FF018786")
+                binding.containerCdEmail.helperText = ""
         }
         }.addOnFailureListener {
-            Toast.makeText(this, "Erro ao cadastrar!", Toast.LENGTH_SHORT).show()
+            val erro = it
+
+            when{
+                erro is FirebaseAuthWeakPasswordException -> {
+                    binding.containerCdSenha.helperText = "Digite uma senha com no minnimo 6 caracteres!"
+                    binding.containerCdSenha.boxStrokeColor = Color.parseColor("#FF0000")
+                }
+                erro is FirebaseAuthUserCollisionException -> {
+                    binding.containerCdEmail.helperText = "E-mail já cadastrado!"
+                    binding.containerCdEmail.boxStrokeColor = Color.parseColor("#FF0000")
+                }
+                erro is FirebaseNetworkException -> {
+                    binding.containerCdSenha.helperText = "Sem conexão com a internet!"
+                    binding.containerCdSenha.boxStrokeColor = Color.parseColor("#FF0000")
+                    binding.containerCdEmail.boxStrokeColor = Color.parseColor("#FF0000")
+                }
+                else -> {
+                    Toast.makeText(this, "Erro ao cadastrar o usuário!", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 }
