@@ -12,5 +12,9 @@
     <string name="continuar">CONTINUAR</string>
     <string name="create_google">Entrar com conta google</string>
     <string name="google_server_client_id" translatable="false">122958840552-74640si82rr8pdrkm9vjnu26lqib9q61.apps.googleusercontent.com</string>
+    <string name="series">Séries</string>
+    <string name="filmes">Filmes</string>
+    <string name="minha_lista">Minha Lista</string>
+    <string name="sair">Sair</string>
 
 </resources>

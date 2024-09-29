@@ -83,6 +83,9 @@ class FormCadastro : AppCompatActivity() {
                 binding.containerCdSenha.boxStrokeColor = Color.parseColor("#FF018786")
                 binding.containerCdEmail.boxStrokeColor = Color.parseColor("#FF018786")
                 binding.containerCdEmail.helperText = ""
+                val intent = Intent(this, Home::class.java)
+                startActivity(intent)
+                finish()
         }
         }.addOnFailureListener {
             val erro = it

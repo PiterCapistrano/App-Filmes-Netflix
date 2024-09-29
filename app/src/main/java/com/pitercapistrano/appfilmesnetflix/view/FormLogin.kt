@@ -58,6 +58,7 @@ class FormLogin : AppCompatActivity() {
         binding.btGoogle.setOnClickListener {
             val signInIntent = googleSignInClient.signInIntent  // Cria o Intent de login do Google
             startActivityForResult(signInIntent, RC_SIGN_IN)  // Inicia a Activity de login
+            Toast.makeText(this, "Login efetuado com sucesso!", Toast.LENGTH_SHORT).show()
         }
 
         binding.editEmail.requestFocus()
