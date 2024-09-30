@@ -17,5 +17,8 @@
     <string name="minha_lista">Minha Lista</string>
     <string name="sair">Sair</string>
     <string name="filmes_populares">Filmes Populares</string>
+    <string name="filmes_acao">Filmes de Ação</string>
+    <string name="filmes_aventura">Aventura</string>
+    <string name="filmes_comedia">Comédia</string>
 
 </resources>
