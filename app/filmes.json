@@ -1,0 +1,18 @@
+{
+  "categoria": [
+    {
+      "id": 1,
+      "titulo": "Filmes Populares",
+      "capas": [
+        {
+          "id": 1,
+          "url_imagem": "https://stackmobile.com.br/wp-content/uploads/2022/10/filme.jpg",
+          "nome": "Curtas dos Minions 1",
+          "descricao": "Esta coletânea de curtas da franquia Meu Malvado Favorito inclui Rodas de Treino, Filhotinho e Amarelo é o novo Preto.",
+          "elenco": "Perre Coffin, Miranda Cosgrove, Dana Gaier",
+          "video": "https://firebasestorage.googleapis.com/v0/b/appfilmesnetflix.appspot.com/o/filmes%2FTrailer%20%E2%80%93%20Curtas%20dos%20Minions%201%20%5BDUBLADO%5D%20_%20TeleFilms%20Plus.mp4?alt=media&token=023ecfd9-2723-4923-bbc8-d0359f0d6246"
+        }
+      ]
+    }
+  ]
+}
