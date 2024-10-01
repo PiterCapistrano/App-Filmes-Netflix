@@ -9,7 +9,11 @@ data class Categoria(
 
 data class Filme(
     @SerializedName("url_imagem") val capa: String? = null,
-    @SerializedName("id") val id: Int = 0
+    @SerializedName("id") val id: Int = 0,
+    val nome:String? = null,
+    val descricao:String? = null,
+    val elenco:String? = null,
+    val video:String? = null
 )
 
 data class Categorias(@SerializedName("categoria")
