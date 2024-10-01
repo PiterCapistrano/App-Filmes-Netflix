@@ -9,7 +9,7 @@ import com.pitercapistrano.appfilmesnetflix.databinding.CategoriaItemBinding
 import com.pitercapistrano.appfilmesnetflix.model.Categoria
 import com.pitercapistrano.appfilmesnetflix.model.Filme
 
-class AdapterCategoria (private val context: Context, private val listaCategorias: MutableList<Categoria>):
+class AdapterCategoria (private val context: Context, val listaCategorias: MutableList<Categoria>):
     RecyclerView.Adapter<AdapterCategoria.CategoriaViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriaViewHolder {

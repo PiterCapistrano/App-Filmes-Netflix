@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.pitercapistrano.appfilmesnetflix.databinding.FilmeItemBinding
 import com.pitercapistrano.appfilmesnetflix.model.Filme
 
@@ -18,10 +19,11 @@ class AdapterFilme(private val context: Context, private val listaFilmes: Mutabl
     override fun getItemCount() = listaFilmes.size
 
     override fun onBindViewHolder(holder: FilmeViewHolder, position: Int) {
-        holder.capa.setImageResource(listaFilmes[position].capa!!)
+        Glide.with(context).load(listaFilmes[position].capa).centerCrop().into(holder.capa)
     }
 
     inner class FilmeViewHolder(binding: FilmeItemBinding): RecyclerView.ViewHolder(binding.root) {
         val capa = binding.capaFilme
+
     }
 }

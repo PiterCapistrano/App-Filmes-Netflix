@@ -87,5 +87,44 @@
             app:layout_constraintBottom_toBottomOf="parent"
             />
 
+    <View
+        android:id="@+id/container_progress_bar"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:background="@color/white"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/red"
+        android:visibility="visible"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toTopOf="@+id/container_progress_bar"
+        app:layout_constraintStart_toStartOf="@+id/container_progress_bar"
+        app:layout_constraintBottom_toBottomOf="@+id/container_progress_bar"
+        />
+
+    <TextView
+        android:id="@+id/txt_carregando"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Carregando..."
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="@+id/container_progress_bar"
+        app:layout_constraintStart_toEndOf="@+id/progressBar"
+        app:layout_constraintEnd_toEndOf="@+id/container_progress_bar"
+        app:layout_constraintBottom_toBottomOf="@+id/container_progress_bar"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

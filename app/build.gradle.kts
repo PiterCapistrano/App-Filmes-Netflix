@@ -57,6 +57,11 @@ dependencies {
     implementation ("com.google.android.gms:play-services-identity:18.0.1")
     implementation(libs.firebase.firestore.ktx)
 
+    implementation ("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

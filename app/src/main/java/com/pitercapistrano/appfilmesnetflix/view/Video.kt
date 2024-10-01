@@ -1,4 +1,4 @@
-package com.pitercapistrano.appfilmesnetflix
+package com.pitercapistrano.appfilmesnetflix.view
 
 import android.net.Uri
 import android.os.Bundle
@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.pitercapistrano.appfilmesnetflix.R
 
 class Video : AppCompatActivity() {
 
